@@ -14,4 +14,9 @@ class Product extends Model
         'code',
         'color',
     ];
+
+    public function purchase()
+    {
+        return $this->hasMany(Purchase::class);
+    }
 }
