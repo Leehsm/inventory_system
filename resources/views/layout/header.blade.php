@@ -32,10 +32,10 @@
             </div>
             <nav class="navbar">
                 <ul class="navbar_menu">
-                <li><a href="/#inventory">Inventory</a></li>
+                <li><a href="{{ route('inventory') }}">Inventory</a></li>
                 <li><a href="/#skincare">Skincare DB</a></li>
                 <li><a href="/#clothing">Clothing DB</a></li>
-                <li><a href="/#membership">Membership</a></li>
+                <li><a href="/#membership">Order</a></li>
                 </ul>
                 <div class="hamburger_container">
                 <i class="fa fa-bars" aria-hidden="true"></i>
@@ -54,7 +54,7 @@
         <li class="menu_item"><a href="/#inventory">Inventory</a></li>
         <li class="menu_item"><a href="/#skincare">Skincare DB</a></li>
         <li class="menu_item"><a href="/#clothing">Clothing DB</a></li>
-        <li class="menu_item"><a href="/#membership">Membership</a></li>
+        <li class="menu_item"><a href="/#membership">Order</a></li>
       </ul>
     </div>
 </div>
