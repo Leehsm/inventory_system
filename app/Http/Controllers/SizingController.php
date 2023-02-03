@@ -39,4 +39,40 @@ class SizingController extends Controller
         return redirect()->route('size')->with('success', 'Product size created successfully!');
 
     }
+
+    public function sizeEdit($id){
+
+        $size = Size::findOrFail($id);
+        return view('size.edit', compact('size'));
+    }
+
+    public function sizeUpdate(Request $req){
+        $id = $req->id;
+
+        Size::findOrFail($id)->update([
+            'size_type' => $req->size,
+            'quantity' => $req->qty,
+        ]);
+
+        $notification = array(
+            'message' => 'Size Updated Successfully',
+            'alert-type' => 'info'
+        );
+        
+        return redirect()->route('inventory')->with($notification);
+
+    }
+
+    public function sizeDelete($id){
+
+        Size::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Size Deleted Successfully',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->back()->with($notification);
+        
+    }
 }
