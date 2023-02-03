@@ -25,6 +25,15 @@ Route::get('/', function () {
 Route::get('/', [FrontendController::class, 'index']);
 
 //product
+Route::get('/product', [ProductController::class, 'product'])->name('product');
+Route::get('/productadd', [ProductController::class, 'productAdd'])->name('product.add');
+Route::post('/productstore', [ProductController::class, 'productStore'])->name('product.store');
+Route::get('/productedit/{id}', [ProductController::class, 'productEdit'])->name('product.edit');
+Route::post('product/update', [ProductController::class, 'productUpdate'])->name('product.update');
+Route::get('/productdelete/{id}', [ProductController::class, 'productDelete'])->name('product.delete');
+Route::get('/productsearch', [ProductController::class, 'inventorysearch'])->name('product.search');
+
+//Inventory
 Route::get('/inventory', [InventoryController::class, 'inventory'])->name('inventory');
 Route::get('/inventoryadd', [InventoryController::class, 'inventoryAdd'])->name('inventory.add');
 Route::post('/inventorystore', [InventoryController::class, 'inventoryStore'])->name('inventory.store');
