@@ -11,6 +11,7 @@ Inventory
             <div class="col">
                 <div class="main_slider_abt" id="aboutus">
                     <h1>Inventory Database</h1>
+                    <div class="red_button shop_now_button"><a href="{{ route('product') }}">View Product</a></div>
                     <div class="red_button shop_now_button"><a href="{{ route('inventory.add') }}">Add New</a></div>
                     <div class="red_button shop_now_button"><a href="{{ route('size') }}">Add Size</a></div>
                 </div>
@@ -43,9 +44,10 @@ Inventory
             </tr>
           </thead>
           <tbody>
+            @php $counter = 1 @endphp
             @foreach ($products as $data)
             <tr>
-              <th scope="row">1</th>
+              <th scope="row">{{ $counter }}</th>
               <td><img src="{{ asset($data->image) }}" style="width: 70px; height: 40px;"> </td>
               <td>{{ $data->code }}</td>
               <td>{{ $data->name }}</td>
@@ -54,10 +56,13 @@ Inventory
               <td>{{ $data->quantity }}</td>
               <td>{{ $data->price }}</td>
               <td>
-                <a href="{{ route('inventory.edit', $data->id) }}" class="btn btn-info btn-sm" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                <a href="{{ route('inventory.delete', $data->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
+                <a href="{{ route('inventory.edit', $data->id) }}" class="btn btn-info btn-sm" title="Edit Data"><i class="fa fa-pencil">Product</i> </a>
+                <a href="{{ route('size.edit', $data->size_id) }}" class="btn btn-info btn-sm" title="Edit Data"><i class="fa fa-pencil">Size</i> </a>
+                <a href="{{ route('inventory.delete', $data->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash">Product</i></a>
+                <a href="{{ route('size.delete', $data->size_id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash">Size</i></a>
               </td>
             </tr>
+            @php $counter++ @endphp
             @endforeach
           </tbody>
         </table>
