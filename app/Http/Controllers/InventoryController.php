@@ -10,11 +10,12 @@ use App\Models\Product;
 
 class InventoryController extends Controller
 {
+
     public function inventory(){
 
         $products = DB::table('products')
                     ->join('sizes', 'products.id', '=', 'sizes.product_id')
-                    ->select('products.*', 'sizes.size_type as size', 'sizes.quantity as quantity')
+                    ->select('products.*', 'sizes.id as size_id', 'sizes.size_type as size', 'sizes.quantity as quantity')
                     ->get();
 
         return view('inventory.view', compact('products'));
