@@ -3,29 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Image;
 
 use App\Models\Product;
 
-class InventoryController extends Controller
+class ProductController extends Controller
 {
+    public function product(){
+        $product = Product::get();
 
-    public function inventory(){
-
-        $products = DB::table('products')
-                    ->join('sizes', 'products.id', '=', 'sizes.product_id')
-                    ->select('products.*', 'sizes.id as size_id', 'sizes.size_type as size', 'sizes.quantity as quantity')
-                    ->get();
-
-        return view('inventory.view', compact('products'));
+        return view('product.view', compact('product'));
     }
 
-    public function inventoryAdd(){
-        return view('inventory.add');
+    public function productAdd(){
+        return view('product.add');
     }
 
-    public function inventoryStore(Request $req){
+    public function productStore(Request $req){
         $image = $req->file('image');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         Image::make($image)->save('upload/products/'.$name_gen);
@@ -39,16 +32,16 @@ class InventoryController extends Controller
             'price' => $req->price,
         ]);
 
-        return redirect()->route('inventory.add')->with('success', 'Product created successfully!');
+        return redirect()->route('product.add')->with('success', 'Product created successfully!');
     }
 
-    public function inventoryEdit($id){
+    public function productEdit($id){
 
         $product = Product::findOrFail($id);
-        return view('inventory.edit', compact('product'));
+        return view('product.edit', compact('product'));
     }
 
-    public function inventoryUpdate(Request $req){
+    public function productUpdate(Request $req){
 
         $id = $req->id;
         $old_image = $req->old_image;
@@ -90,15 +83,15 @@ class InventoryController extends Controller
 
         }
         
-        return redirect()->route('inventory')->with($notification);
+        return redirect()->route('product')->with($notification);
 
     }
 
-    public function inventoryDelete(){
+    public function productDelete(){
         
     }
     
-    public function inventorysearch(Request $request){
+    public function productsearch(Request $request){
 
         $query = $request->input('search');
         $products = Product::where('name', 'like', "%$query%")
