@@ -10,7 +10,7 @@ Product
         <div class="row align-items-center fill_height">
             <div class="col">
                 <div class="main_slider_abt" id="aboutus">
-                    <h1>Inventory Database</h1>
+                    <h1>Product Database</h1>
                     <div class="red_button shop_now_button"><a href="{{ route('inventory.add') }}">Add New</a></div>
                     <div class="red_button shop_now_button"><a href="{{ route('size') }}">Add Size</a></div>
                 </div>

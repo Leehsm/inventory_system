@@ -19,7 +19,7 @@ Size
                         <option value="{{ $product->id }}">{{ $product->name }} / {{ $product->color }}/ {{ $product->code }}</option>
                     @endforeach
                 </select>
-              </div>
+            </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Size</label>
                 <input type="text" class="form-control" name="size" id="size" required>
