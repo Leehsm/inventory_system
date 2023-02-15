@@ -5,19 +5,19 @@
         <div class="col-lg-6">
           <div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
             <ul class="footer_nav">
-              <li><a href="#">Blog</a></li>
+              {{-- <li><a href="#">Blog</a></li>
               <li><a href="#">FAQs</a></li>
-              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Contact us</a></li> --}}
             </ul>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
             <ul>
-              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              {{-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
               <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
               <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-              <li><a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a></li> --}}
             </ul>
           </div>
         </div>
