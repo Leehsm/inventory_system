@@ -9,6 +9,7 @@ use App\Http\Controllers\SizingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SkincareController;
 use App\Http\Controllers\ClothingController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,3 +75,7 @@ Route::post('/clothingupdate', [ClothingController::class, 'clothingUpdate'])->n
 Route::get('/clothingdelete/{id}', [ClothingController::class, 'clothingDelete'])->name('clothing.delete');
 Route::get('/clothingsearch', [ClothingController::class, 'clothingsearch'])->name('clothing.search');
 
+
+
+//Order DB
+Route::get('/order', [OrderController::class, 'order'])->name('order');
