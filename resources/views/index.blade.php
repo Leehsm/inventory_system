@@ -24,17 +24,26 @@ Sahira
     @foreach ($product as $data)
       <div class="col-sm-6 col-lg-4 mb-3">
         <div class="card h-100">
-          <img src="{{ asset($data->image) }}" class="card-img-top" style="width: 250px; height: 250px;">
+          <img src="{{ asset($data->image) }}" class="card-img-top" style="width: 210px; height: 280px;">
           <div class="card-body">
-            <input type="hidden" name="name" value="{{ $data->name }}">
-            <input type="hidden" name="code" value="{{ $data->code }}">
-            <input type="hidden" name="color" value="{{ $data->color }}">
-            <input type="hidden" name="price" value="{{ $data->price }}">
             <h5 class="card-title">{{ $data->name }}</h5>
-            <p class="card-text">{{ $data->code }}</p>
-            <p class="card-text">{{ $data->color }}</p>
-            <p class="card-text">{{ $data->price }}</p>
-            <a href="#" class="btn btn-primary">ADD</a>
+            <p class="card-text">Code: {{ $data->code }}</p>
+            <p class="card-text">Color: {{ $data->color }}</p>
+            <p class="card-text">Size: {{ $data->size }}</p>
+            <p class="card-text">RM {{ $data->price }}</p>
+            <p class="card-text">Stock Left: {{ $data->quantity }}</p>
+            <form action="{{ route('order.store') }}" method="POST" enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" name="id" value="{{ $data->id }}">
+              <input type="hidden" name="image" value="{{ $data->image }}">
+              <input type="hidden" name="name" value="{{ $data->name . " [ ". $data->size ." , ". $data->color . " ]" }}">
+              <input type="hidden" name="code" value="{{ $data->code }}">
+              <input type="hidden" name="color" value="{{ $data->color }}">
+              <input type="hidden" name="size" value="{{ $data->size }}">
+              <input type="hidden" value="1" name="quantity">
+              <input type="hidden" name="price" value="{{ $data->price }}">
+              <button class="btn btn-primary mb-2">Add To Cart</button>
+            </form>
           </div>
         </div>
     </div>
