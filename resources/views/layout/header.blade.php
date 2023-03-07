@@ -13,7 +13,7 @@
                 <li><a href="{{ route('inventory') }}">Inventory</a></li>
                 <li><a href="{{ route('skincare') }}">Skincare DB</a></li>
                 <li><a href="{{ route('clothing') }}">Clothing DB</a></li>
-                <li><a href="/#membership">Order</a></li>
+                <li><a href="{{ route('order') }}">Order</a></li>
                 </ul>
                 <div class="hamburger_container">
                 <i class="fa fa-bars" aria-hidden="true"></i>

@@ -9,6 +9,7 @@ use App\Http\Controllers\SizingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SkincareController;
 use App\Http\Controllers\ClothingController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,3 +75,21 @@ Route::post('/clothingupdate', [ClothingController::class, 'clothingUpdate'])->n
 Route::get('/clothingdelete/{id}', [ClothingController::class, 'clothingDelete'])->name('clothing.delete');
 Route::get('/clothingsearch', [ClothingController::class, 'clothingsearch'])->name('clothing.search');
 
+
+
+//Order DB
+// Route::get('/order', [OrderController::class, 'order'])->name('order');
+
+
+//cart 
+Route::get('/order', [OrderController::class, 'orderList'])->name('order');
+Route::post('/order-store', [OrderController::class, 'addToCart'])->name('order.store');
+Route::post('/update-order', [OrderController::class, 'updateCart'])->name('order.update');
+Route::post('/remove', [OrderController::class, 'removeCart'])->name('order.remove');
+Route::post('/clear', [OrderController::class, 'clearAllCart'])->name('order.clear');
+Route::post('/save', [OrderController::class, 'saveAllCart'])->name('order.save');
+Route::get('/saved-order', [OrderController::class, 'savedOrder'])->name('saved-order');
+
+
+Route::get('/order-detail/{id}', [OrderController::class, 'orderDetail'])->name('order-detail');
+Route::get('/invoice/download/{id}', [OrderController::class, 'InvoiceDownload'])->name('invoice-download'); 

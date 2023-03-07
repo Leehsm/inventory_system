@@ -1277,6 +1277,7 @@ section
 {
 	display: block;
 	position: absolute;
+	top: 50px;
 	bottom: 3px;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
@@ -1422,7 +1423,7 @@ section
 
 .benefit
 {
-	margin-top: 74px;
+	margin-top: 150px;
 }
 .benefit h6
 {
@@ -1430,8 +1431,8 @@ section
 }
 .benefit_row
 {
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 .benefit_col
 {

@@ -4,18 +4,15 @@
 Size
 @endsection
 
-<!-- Slider -->
-<div class="main_slider" style="background-image:url(assets/images/slider_1.jpg)">
-    <div class="container fill_height">
-        <div class="row align-items-center fill_height">
-            <div class="col">
-                <div class="main_slider_abt" id="aboutus">
-                    <h1>Product Size</h1>
-                    <div class="red_button shop_now_button"><a href="{{ route('size.add') }}">Add Size</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="benefit">
+  <div class="col text-center" id="blog">
+      <div class="section_title">
+        <h2>Product Size</h2>
+        <br>
+        <div class="red_button shop_now_button"><a href="{{ route('size.add') }}">Add Size</a></div>
+      </div>      
+  </div>
+  <br>
 </div>
 
 <div class="benefit">
