@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Skincare extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'phone',
+        'address',
+        'dob',
+        'admin',
+    ];
 }
