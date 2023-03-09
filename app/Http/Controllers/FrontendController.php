@@ -26,4 +26,27 @@ class FrontendController extends Controller
 
         return view('index', compact('product'));
     }
+
+    public function frontendsearch(Request $request){
+
+        $query = $request->search;
+        // $productsearch = Product::where('name', 'like', "%$query%")
+        //            ->orWhere('code', 'like', "%$query%")
+        //            ->get();
+
+        // dd($query);
+
+        $productsearch = DB::table('products')
+                        ->join('sizes', 'products.id', '=', 'sizes.product_id')
+                        ->select('products.*', 'sizes.id as size_id', 'sizes.size_type as size', 'sizes.quantity as quantity')
+                        ->where('products.name', 'like', "%$query%")
+                        ->orWhere('products.code', 'like', "%$query%")
+                        ->get();
+
+        // dd($productsearch);
+
+        return view('search', compact('productsearch'));
+
+    }
+    
 }

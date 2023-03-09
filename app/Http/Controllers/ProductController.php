@@ -98,6 +98,6 @@ class ProductController extends Controller
                    ->orWhere('code', 'like', "%$query%")
                    ->get();
 
-        return view('search', ['products' => $products]);
+        return view('product.search', compact('products'));
     }
 }

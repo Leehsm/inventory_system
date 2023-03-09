@@ -77,7 +77,16 @@ class ClothingController extends Controller
     }
 
     
-    public function clothingSearch(){
+    public function clothingsearch(Request $request){
         
+        $query = $request->search;
+        // dd($query);
+
+        $clothingsearch = Clothing::Where('name', 'like', "%$query%")->orWhere('phone', 'like', "%$query%")->get();
+
+        // dd($clothingsearch);
+
+        return view('clothing.search', compact('clothingsearch'));
+
     }
 }
