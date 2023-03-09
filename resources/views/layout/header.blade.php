@@ -29,10 +29,10 @@
     <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
     <div class="hamburger_menu_content text-right">
       <ul class="menu_top_nav">
-        <li class="menu_item"><a href="/#inventory">Inventory</a></li>
-        <li class="menu_item"><a href="/#skincare">Skincare DB</a></li>
-        <li class="menu_item"><a href="/#clothing">Clothing DB</a></li>
-        <li class="menu_item"><a href="/#membership">Order</a></li>
+        <li class="menu_item"><a href="{{ route('inventory') }}">Inventory</a></li>
+        <li class="menu_item"><a href="{{ route('skincare') }}">Skincare DB</a></li>
+        <li class="menu_item"><a href="{{ route('clothing') }}">Clothing DB</a></li>
+        <li class="menu_item"><a href="{{ route('order') }}">Order</a></li>
       </ul>
     </div>
 </div>
