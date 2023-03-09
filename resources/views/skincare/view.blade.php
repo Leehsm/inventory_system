@@ -17,9 +17,10 @@ Skincare DB
 
 <div class="benefit">
     <div class="container">
-      <form action="{{ route('skincare.search') }}" method="GET" class="form-inline">
+      <form action="{{ route('skincare.search') }}" method="post" class="form-inline">
+        @csrf
         <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control" id="search" placeholder="Name / Code">
+          <input type="text" class="form-control" id="search" name="search" placeholder="Name / Phone">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
       </form>
@@ -48,9 +49,7 @@ Skincare DB
               <td>{{ $data->admin }}</td>
               <td>
                 <a href="{{ route('skincare.edit', $data->id) }}" class="btn btn-info btn-sm" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                
                 <a href="{{ route('skincare.delete', $data->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
-                
               </td>
             </tr>
             @php $counter++ @endphp

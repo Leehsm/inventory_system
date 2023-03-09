@@ -17,9 +17,10 @@ Size
 
 <div class="benefit">
     <div class="container">
-      <form action="{{ route('size.search') }}" method="GET" class="form-inline">
+      <form action="{{ route('size.search') }}" method="post" class="form-inline">
+        @csrf
         <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control" id="search" placeholder="Name / Code">
+          <input type="text" class="form-control" id="search" name="search" placeholder="Name / Code">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
       </form>
@@ -46,8 +47,8 @@ Size
               <td>{{ $data->size }}</td>
               <td>{{ $data->quantity }}</td>
               <td>
-                <a href="#" class="btn btn-info btn-sm" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                <a href="#" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
+                <a href="{{ route('size.edit', $data->size_id) }}" class="btn btn-info btn-sm" title="Edit Data"><i class="fa fa-pencil"></i> </a>
+                <a href="{{ route('size.delete', $data->size_id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
             @endforeach
