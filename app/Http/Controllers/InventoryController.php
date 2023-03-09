@@ -94,17 +94,30 @@ class InventoryController extends Controller
 
     }
 
-    public function inventoryDelete(){
-        
+    public function inventoryDelete($id){
+        Product::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Product Deleted Successfully',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->back()->with($notification);
     }
     
     public function inventorysearch(Request $request){
 
-        $query = $request->input('search');
-        $products = Product::where('name', 'like', "%$query%")
-                   ->orWhere('code', 'like', "%$query%")
-                   ->get();
+        $query = $request->search;
 
-        return view('search', ['products' => $products]);
+        $productsearch = DB::table('products')
+                        ->join('sizes', 'products.id', '=', 'sizes.product_id')
+                        ->select('products.*', 'sizes.id as size_id', 'sizes.size_type as size', 'sizes.quantity as quantity')
+                        ->where('products.name', 'like', "%$query%")
+                        ->orWhere('products.code', 'like', "%$query%")
+                        ->get();
+
+        // dd($productsearch);
+
+        return view('inventory.search', compact('productsearch'));
     }
 }

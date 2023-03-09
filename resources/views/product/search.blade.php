@@ -19,13 +19,6 @@ Product
 
 <div class="benefit">
     <div class="container">
-      <form action="{{ route('product.search') }}" method="post" class="form-inline">
-        @csrf
-        <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control" id="search" name="search" placeholder="Name / Code">
-        </div>
-        <button type="submit" class="btn btn-primary mb-2">Search</button>
-      </form>
       <div class="row benefit_row" style="overflow-x: auto; display: block;">
         <table class="table">
           <thead>
@@ -41,7 +34,7 @@ Product
           </thead>
           <tbody>
             @php $counter = 1 @endphp
-            @foreach ($product as $data)
+            @foreach ($products as $data)
             <tr>
               <th scope="row">{{ $counter }}</th>
               <td><img src="{{ asset($data->image) }}" style="width: 70px; height: 40px;"> </td>

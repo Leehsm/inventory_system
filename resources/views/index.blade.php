@@ -14,15 +14,16 @@ Sahira
 </div>
 
 <div class="container">
-    <form action="{{ route('inventory.search') }}" method="GET" class="form-inline">
+    <form action="{{ route('frontend.search') }}" method="post" class="form-inline">
+        @csrf
         <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control" id="search" placeholder="Name / Code">
+          <input type="text" class="form-control" id="search" name="search" placeholder="Name / Code">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
     <div class="row">
     @foreach ($product as $data)
-      <div class="col-sm-6 col-lg-4 mb-3">
+      <div class="col-sm-6 col-lg-3 mb-3">
         <div class="card h-100">
           <img src="{{ asset($data->image) }}" class="card-img-top" style="width: 210px; height: 280px;">
           <div class="card-body">

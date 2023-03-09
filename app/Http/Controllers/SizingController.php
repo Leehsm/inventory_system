@@ -16,7 +16,7 @@ class SizingController extends Controller
 
         $size = DB::table('products')
                     ->join('sizes', 'products.id', '=', 'sizes.product_id')
-                    ->select('products.*', 'sizes.size_type as size', 'sizes.quantity as quantity')
+                    ->select('products.*', 'sizes.id as size_id', 'sizes.size_type as size', 'sizes.quantity as quantity')
                     ->get();
 
         return view('size.view', compact('size'));
@@ -74,5 +74,23 @@ class SizingController extends Controller
 
         return redirect()->back()->with($notification);
         
+    }
+
+    public function sizesearch(Request $request){
+
+        $query = $request->search;
+        // dd($query);
+
+        $productsizesearch = DB::table('products')
+                            ->join('sizes', 'products.id', '=', 'sizes.product_id')
+                            ->select('products.*', 'sizes.id as size_id', 'sizes.size_type as size', 'sizes.quantity as quantity')
+                            ->where('products.name', 'like', "%$query%")
+                            ->orWhere('products.code', 'like', "%$query%")
+                            ->get();
+
+        // dd($clothingsearch);
+
+        return view('size.search', compact('productsizesearch'));
+
     }
 }

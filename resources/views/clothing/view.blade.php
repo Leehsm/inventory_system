@@ -17,9 +17,10 @@ Clothing DB
 
 <div class="benefit">
     <div class="container">
-      <form action="{{ route('clothing.search') }}" method="GET" class="form-inline">
+      <form action="{{ route('clothing.search') }}" method="post" class="form-inline">
+        @csrf
         <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control" id="search" placeholder="Name / Code">
+          <input type="text" class="form-control" id="search" name="search" placeholder="Name / phone">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
       </form>

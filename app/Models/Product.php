@@ -13,6 +13,7 @@ class Product extends Model
         'name',
         'code',
         'color',
+        'price',
     ];
 
     public function purchase()

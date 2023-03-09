@@ -10,7 +10,7 @@ Inventory
         <h2>Inventory Database</h2>
         <br>
         <div class="red_button shop_now_button"><a href="{{ route('product') }}">View Product</a></div>
-        <div class="red_button shop_now_button"><a href="{{ route('inventory.add') }}">Add New</a></div>
+        <div class="red_button shop_now_button"><a href="{{ route('inventory.add') }}">Add Product</a></div>
         <div class="red_button shop_now_button"><a href="{{ route('size') }}">Add Size</a></div>
       </div>      
   </div>
@@ -19,9 +19,10 @@ Inventory
 
 <div class="benefit">
     <div class="container">
-      <form action="{{ route('inventory.search') }}" method="GET" class="form-inline">
+      <form action="{{ route('inventory.search') }}" method="post" class="form-inline">
+        @csrf
         <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control" id="search" placeholder="Name / Code">
+          <input type="text" class="form-control" id="search" name="search" placeholder="Name / Code">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
       </form>

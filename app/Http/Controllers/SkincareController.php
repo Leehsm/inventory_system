@@ -77,7 +77,16 @@ class SkincareController extends Controller
     }
 
     
-    public function skincareSearch(){
+    public function skincaresearch(Request $request){
         
+        $query = $request->search;
+        // dd($query);
+
+        $skincaresearch = Skincare::Where('name', 'like', "%$query%")->orWhere('phone', 'like', "%$query%")->get();
+
+        // dd($clothingsearch);
+
+        return view('skincare.search', compact('skincaresearch'));
+
     }
 }

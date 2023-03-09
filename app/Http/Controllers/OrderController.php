@@ -131,7 +131,7 @@ class OrderController extends Controller
         $order = Order::where('id',$id)->first();
     	$orderItem = InHouseOrder::where('order_id',$id)->orderBy('id','DESC')->get();
         
-		$pdf = PDF::loadView('order.invoice', compact('order','orderItem'))->setPaper('a4')->setOptions([ 'tempDir' => public_path(),'chroot' => public_path(), ]);
+		$pdf = PDF::loadView('order.invoice', compact('order','orderItem'));
 		return $pdf->download('invoice.pdf');
     }
 }

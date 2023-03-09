@@ -9,7 +9,7 @@ Inventory
       <div class="row benefit_row" style="overflow-x: auto; display: block;">
         <form method="POST" action="{{ route('inventory.update') }}" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="{{ $product->code }}">
+            <input type="hidden" name="id" value="{{ $product->id }}">
             <input type="hidden" name="old_image" value="{{ $product->image }}">
 
             <div class="form-group">

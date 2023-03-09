@@ -1,15 +1,15 @@
 @extends('welcome')
 @section('content')
 @section('title')
-Skincare DB
+Clothing DB
 @endsection
 
 <div class="benefit">
   <div class="col text-center" id="blog">
       <div class="section_title">
-        <h2>Skincare Cutomer DB</h2>
+        <h2>Clothing Cutomer DB</h2>
         <br>
-        <div class="red_button shop_now_button"><a href="{{ route('skincare.add') }}">Add New</a></div>
+        <div class="red_button shop_now_button"><a href="{{ route('clothing.add') }}">Add New</a></div>
       </div>      
   </div>
   <br>
@@ -17,13 +17,6 @@ Skincare DB
 
 <div class="benefit">
     <div class="container">
-      <form action="{{ route('skincare.search') }}" method="post" class="form-inline">
-        @csrf
-        <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control" id="search" name="search" placeholder="Name / Phone">
-        </div>
-        <button type="submit" class="btn btn-primary mb-2">Search</button>
-      </form>
       <div class="row benefit_row" style="overflow-x: auto; display: block;">
         <table class="table">
           <thead>
@@ -39,7 +32,7 @@ Skincare DB
           </thead>
           <tbody>
             @php $counter = 1 @endphp
-            @foreach ($skincare as $data)
+            @foreach ($clothingsearch as $data)
             <tr>
               <th scope="row">{{ $counter }}</th>
               <td>{{ $data->name }}</td>
@@ -48,8 +41,10 @@ Skincare DB
               <td>{{ $data->dob }}</td>
               <td>{{ $data->admin }}</td>
               <td>
-                <a href="{{ route('skincare.edit', $data->id) }}" class="btn btn-info btn-sm" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                <a href="{{ route('skincare.delete', $data->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
+                <a href="{{ route('clothing.edit', $data->id) }}" class="btn btn-info btn-sm" title="Edit Data"><i class="fa fa-pencil"></i> </a>
+                
+                <a href="{{ route('clothing.delete',$data->id) }}" class="btn btn-danger btn-sm" title="Delete Data" id="delete"><i class="fa fa-trash"></i></a>
+                
               </td>
             </tr>
             @php $counter++ @endphp

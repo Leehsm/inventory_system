@@ -9,7 +9,7 @@ Skincare DB
       <div class="row benefit_row" style="overflow-x: auto; display: block;">
         <form method="POST" action="{{ route('skincare.update') }}" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="{{ $skincare->code }}">
+            <input type="hidden" name="id" value="{{ $skincare->id }}">
 
             <div class="form-group">
                 <label for="exampleFormControlInput1"><h3> Edit Skincare's Customer <h3></label>
