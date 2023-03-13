@@ -12,6 +12,7 @@ use App\Models\Order;
 
 use Carbon\Carbon;
 use PDF;
+use Dompdf\Dompdf;
 
 class OrderController extends Controller
 {
@@ -131,7 +132,7 @@ class OrderController extends Controller
         $order = Order::where('id',$id)->first();
     	$orderItem = InHouseOrder::where('order_id',$id)->orderBy('id','DESC')->get();
         
-		$pdf = PDF::loadView('order.invoice', compact('order','orderItem'));
-		return $pdf->download('invoice.pdf');
+		return view('order.invoice', compact('order','orderItem'));
+		// return $pdf->download('invoice.pdf');
     }
 }
